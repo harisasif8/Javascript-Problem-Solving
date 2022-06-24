@@ -526,9 +526,9 @@
 
 // const firstNumber = parseInt(prompt('Enter first number'))
 // const secondNumber = parseInt(prompt('Enter second number'))
-
 // const add = () => {
 //     sum = firstNumber + secondNumber;
+//     console.log(sum, 'sum=====')
 //     console.log(sum);
 // }
 // add()
@@ -538,27 +538,16 @@
 
 
 // const calculator = (firstValue, secondValue, operator) => {
-//     if (operator === '+') {
-//         sum = firstValue + secondValue;
-//         console.log(sum);
-//     }
+//     const obj = {
+//         '+': firstValue + secondValue,
+//         '-': firstValue - secondValue,
+//         '*': firstValue * secondValue,
+//         '/': firstValue / secondValue
+//     };
 
-//     else if (operator === '-') {
-//         subtract = firstValue - secondValue;
-//         console.log(subtract);
-//     }
-
-//     else if (operator === '*') {
-//         multiple = firstValue * secondValue;
-//         console.log(multiple);
-//     }
-
-//     else if (operator === '/') {
-//         divide = firstValue / secondValue;
-//         console.log(divide);
-//     }
+//     console.log(obj[operator]);
 // }
-// calculator(1, 2, '*')
+// calculator(2, 2, '-')
 
 
 
@@ -566,8 +555,7 @@
 
 
 // const square = (num) => {
-//     num = num * num;
-//     console.log(num);
+//     console.log(num * num);
 // }
 
 // square(120)
@@ -638,8 +626,8 @@
 
 // const areaOfRectangle = (width, height) => {
 
-//     const A = width * height
-//     console.log(A);
+//     const area = width * height
+//     console.log(area);
 // }
 // areaOfRectangle(2, 3)
 
@@ -674,28 +662,10 @@
 
 // question 11
 
-
-// let newStr = []
-
 // const upperCaseFirstLetter = (str) => {
-
 //     const splittedWords = str.split(' ')
-//     console.log(splittedWords);
-
-//     splittedWords.forEach((word) => {
-
-//         const firstLetter = word[0]
-//         const firstCapitalLetter = firstLetter.toUpperCase()
-//         const splittedCharacters = word.split('')
-//         splittedCharacters.splice(0, 1, firstCapitalLetter)
-//         const joinCharacter = splittedCharacters.join('')
-//         newStr.push(joinCharacter)
-
-//     })
-
-//     const finalOutput = newStr.join(' ')
-//     console.log(finalOutput);
-
+//     const newStr = splittedWords.map((word) => word[0].toUpperCase() + word.slice(1, word.length)).join(' ');
+//     console.log(newStr);
 // }
 
 
@@ -708,20 +678,14 @@
 
 // const longestString = (str) => {
 
-//     const splittedString = str.split(' ')
-//     let longestWord = '';
+//     const splittedString = str.split(' ').reduce((prev, curr) => {
+//         const currWordLength = curr.split('').length;
+//         if (currWordLength > prev) {
+//             return currWordLength;
+//         };
+//         return prev;
+//     }, 0);
 //     console.log(splittedString);
-
-//     for (let i = 0; i < splittedString.length; i++) {
-
-//         if (splittedString[i].length > longestWord.length) {
-//             longestWord = splittedString[i];
-//         }
-
-//     }
-
-//     console.log(longestWord);
-
 // }
 
 // longestString('Web Development Tutorial')
@@ -732,22 +696,21 @@
 // question 13
 
 
-// let count = 0
+let count = 0
 
+// Do it with reduce
+const searchLetter = (str, letter) => {
 
-// const searchLetter = (str, letter) => {
+    str.split('').reduce((prev, curr) => {
+        if (curr === letter) {
+            count++
+        }
+    }, 0);
 
-//     const splittedCharacters = str.split('')
-//     for (let i = 0; i < splittedCharacters.length; i++) {
-//         if (splittedCharacters[i] === letter) {
-//             count++
-//         }
-//     }
+    console.log(`Such occurances are ${count} times.`);
+}
 
-//     console.log(`Such occurances are ${count} times.`);
-// }
-
-// searchLetter('aaaaaaaa', 'a')
+searchLetter('haris asif', 'a')
 
 
 
@@ -761,9 +724,6 @@
 //     console.log(`circumference of circle ===> ${circumference}`);
 
 // }
-
-
-
 
 
 // const calcArea = (radius) => {
